@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@import url(https://fonts.googleapis.com/css2?family=Mulish:wght@400;600;700&display=swap);@charset "UTF-8";
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */
 /* Document
    ========================================================================== */
@@ -10299,4 +10299,95 @@ textarea.form-control-lg {
   .d-print-none {
     display: none !important;
   }
+}
+body {
+  font-family: "Mulish", sans-serif;
+}
+
+header .menu-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.875rem 0 0.9375rem 0;
+}
+header .custom-logo-active {
+  filter: invert(100%) sepia(66%) saturate(933%) hue-rotate(159deg) brightness(119%) contrast(108%);
+}
+header .main-nav {
+  display: none;
+}
+header .hamburger, header .close {
+  cursor: pointer;
+}
+header .hide {
+  display: none;
+}
+header .open {
+  display: block;
+}
+header .menu {
+  list-style: none;
+  padding-left: 0;
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  padding-bottom: 30px;
+}
+header .menu .menu-item {
+  font-size: 1.25rem;
+  text-align: right;
+}
+header .menu .menu-item a {
+  text-decoration: none;
+  color: white;
+  font-weight: 600;
+  position: relative;
+}
+header .menu .menu-item a:hover::before {
+  content: "";
+  position: absolute;
+  bottom: -4px;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(90deg, #FFD0A8 0%, #FF4FC0 100%);
+}
+
+.menu-open {
+  background-color: #050A3A;
+}
+
+.footer {
+  background-color: #050A3A;
+  color: #fff;
+  padding: 1.875rem 0;
+}
+.footer .custom-logo {
+  filter: invert(100%) sepia(66%) saturate(933%) hue-rotate(159deg) brightness(119%) contrast(108%);
+}
+.footer__header, .footer__footer {
+  display: flex;
+  justify-content: space-between;
+}
+.footer__header {
+  margin-bottom: 20px;
+}
+.footer__contacts, .footer__socials {
+  display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+.footer__contact h2, .footer__contact p {
+  text-align: right;
+}
+.footer__contact h2 {
+  font-size: 1.125rem;
+  font-weight: 700;
+}
+.footer__contact p {
+  font-size: 0.75rem;
+  margin-bottom: 0;
+}
+.footer__socials {
+  display: flex;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
 }

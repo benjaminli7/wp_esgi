@@ -1,0 +1,49 @@
+.footer {
+    background-color: #050A3A;
+    color: #fff;
+    padding: rem(30) 0;
+    .custom-logo {
+        filter: invert(100%) sepia(66%) saturate(933%) hue-rotate(159deg) brightness(119%) contrast(108%);
+    }
+    &__header, &__footer {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    &__header {
+        margin-bottom: 20px;
+    }
+
+    &__contacts, &__socials {
+        display: flex;
+        column-gap: 10px;
+
+    }
+
+    &__contact {
+        h2, p {
+            text-align: right;
+        }
+        h2{
+            font-size: rem(18);
+            font-weight: 700;
+        }
+        p {
+            font-size: rem(12);
+            margin-bottom: 0;
+        }
+    }
+
+    &__footer {
+
+    }
+
+    &__socials {
+        display: flex;
+        column-gap: 10px;
+    }
+
+    &__creator {
+
+    }
+}

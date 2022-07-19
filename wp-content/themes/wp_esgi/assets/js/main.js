@@ -4042,31 +4042,45 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 });
 $(document).ready(function () {
   ajaxizePageLinks();
+  $(".hamburger").click(function () {
+    $(".main-nav").addClass("open");
+    $(".site-header").addClass("menu-open");
+    $(".hamburger").toggleClass("hide");
+    $(".close").toggleClass("hide");
+    $(".custom-logo").addClass("custom-logo-active");
+  });
+  $(".close").click(function () {
+    $(".main-nav").removeClass("open");
+    $(".site-header").removeClass("menu-open");
+    $(".hamburger").toggleClass("hide");
+    $(".close").toggleClass("hide");
+    $(".custom-logo").removeClass("custom-logo-active");
+  });
 });
 
 function showPage(page) {
   console.log(page);
   $.ajax({
     url: esgi.ajaxURL,
-    type: 'POST',
+    type: "POST",
     data: {
-      'action': 'load_posts',
-      'page': page
+      action: "load_posts",
+      page: page
     }
   }).done(function (reponse) {
-    $('#post-list-wrapper').html(reponse);
+    $("#post-list-wrapper").html(reponse);
   });
 }
 
 function ajaxizePageLinks() {
   var page = 1;
-  $('.page-numbers').click(function (e) {
+  $(".page-numbers").click(function (e) {
     e.preventDefault();
-    var currentPage = $('.page-numbers.current').html();
+    var currentPage = $(".page-numbers.current").html();
 
-    if ($(this).hasClass('next')) {
+    if ($(this).hasClass("next")) {
       page = Number(currentPage) + 1;
-    } else if ($(this).hasClass('prev')) {
+    } else if ($(this).hasClass("prev")) {
       page = Number(currentPage) - 1;
     } else {
       page = $(this).html();
@@ -4074,8 +4088,8 @@ function ajaxizePageLinks() {
 
     showPage(page);
     var nextState = {};
-    var nextTitle = 'Page - ' + page;
-    var nextURL = $(this).attr('href');
+    var nextTitle = "Page - " + page;
+    var nextURL = $(this).attr("href");
     window.history.replaceState(nextState, nextTitle, nextURL);
   });
 }
