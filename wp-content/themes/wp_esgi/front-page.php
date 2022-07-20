@@ -2,17 +2,20 @@
 
 
 <main id="site-content">
-	<div class="container">
+	<div class="container title-page">
 		<h1><?= the_title(); ?></h1>
-		<?php
-		if (have_posts()) {
-			while (have_posts()) {
-				the_post();
-				the_content();
-			}
-		}
-		?>
 	</div>
+	<div class="intro">
+		<?php the_post_thumbnail(); ?>
+		<div class="paragraph container">
+			<?php the_content(); ?>
+		</div>
+	</div>
+	<?php if(get_theme_mod('image-paragraph') === 'Yes') : ?>
+		<h1>lo</h1>
+		
+	<?php endif; ?>
+
 </main>
 
 

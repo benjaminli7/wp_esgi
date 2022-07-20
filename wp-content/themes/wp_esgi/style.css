@@ -10304,6 +10304,16 @@ body {
   font-family: "Mulish", sans-serif;
 }
 
+.intro img {
+  padding: 40px 0;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+.intro strong {
+  font-weight: 600;
+  font-size: 1.25rem;
+}
 header .menu-container {
   display: flex;
   justify-content: space-between;

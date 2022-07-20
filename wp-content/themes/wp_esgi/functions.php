@@ -4,6 +4,7 @@ function esgi_theme_support()
 {
     add_theme_support('title-tag');
     add_theme_support('custom-logo');
+    add_theme_support('post-thumbnails');
 }
 
 add_action('after_setup_theme', 'esgi_theme_support');
@@ -49,4 +50,116 @@ function getIcon($name)
 
 
     return $$name;
+}
+
+// AJOUT DE PARAMETRES DE THEMES
+
+function esgi_customize_register($wp_customize)
+{
+
+    $wp_customize->add_section('esgi-custom', [
+        'title' => __('Personnalisation du thème'),
+        'description' => __('Paramètres du thème.'),
+        'priority' => 1,
+        'capability' => 'edit_theme_options',
+    ]);
+
+    $wp_customize->add_setting('main-color', [
+        'default' => '#3F51B5',
+        'sanitize_callback' => 'sanitize_hex_color',
+    ]);
+
+    $wp_customize->add_control(
+        new WP_Customize_Color_Control(
+            $wp_customize,
+            'main-color',
+            [
+                'label'      => __('Couleur principale', 'ESGI'),
+                'section'    => 'esgi-custom',
+                'settings'   => 'main-color',
+            ]
+        )
+    );
+
+
+    $wp_customize->add_setting('is_dark', [
+        'default' => false,
+        'sanitize_callback' => 'sanitize_checkbox',
+    ]);
+
+    $wp_customize->add_control('is_dark', [
+        'type' => 'checkbox',
+        'section' => 'esgi-custom', // Add a default or your own section
+        'label' => __('Thème sombre'),
+        'description' => __('Activer la version sombre du thème.'),
+    ]);
+
+    $wp_customize->add_setting('has_sidebar', [
+        'default' => false,
+        'sanitize_callback' => 'sanitize_checkbox',
+    ]);
+
+    $wp_customize->add_control('has_sidebar', [
+        'type' => 'checkbox',
+        'section' => 'esgi-custom', // Add a default or your own section
+        'label' => __('Afficher la barre latérale'),
+        'description' => __('Afficher la barre latérale sur les pages d\'article.'),
+    ]);
+
+    $wp_customize->add_section('image-paragraph', [
+        'title' => __('Section Image & Paragraphe'),
+        'description' => __('Section Image & Paragraphe.'),
+        'priority' => 1,
+        'capability' => 'edit_theme_options',
+    ]);
+
+    // display or not
+    
+    $wp_customize->add_setting('basic-display', [
+        'default' => 'No',
+        'sanitize_callback' => 'sanitize_custom_option',
+    ]);
+    
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'basic-display',
+            [
+                'label'      => __('Afficher la section Image & Paragraphe', 'ESGI'),
+                'section'    => 'image-paragraph',
+                'settings'   => 'basic-display',
+                'type' => 'select',
+                'choices' => [
+                    'Yes' => 'Oui',
+                    'No' => 'Non',
+                ],
+            ]
+        )
+    );
+
+    $wp_customize->add_setting('basic-author-callout-text', array(
+        'default' => '',
+        'sanitize_callback' => 'sanitize_custom_text'
+    ));
+    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'basic-author-callout-control', array(
+        'label' => 'About Author',
+        'section' => 'image-paragraph',
+        'settings' => 'basic-author-callout-text',
+        'type' => 'textarea'
+    )));
+
+
+
+
+
+
+}
+
+add_action('customize_register', 'esgi_customize_register');
+
+
+
+function sanitize_custom_option($val)
+{
+    return ($val === "No") ? "No" : "Yes";
 }

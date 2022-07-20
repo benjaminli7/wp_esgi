@@ -3,3 +3,24 @@
 body {
     font-family: 'Mulish', sans-serif;
 }
+
+.intro {
+    // padding-left: 250px;
+    img {
+        padding: 40px 0;
+        width: 100%;
+        height: auto;
+        display:block;
+    }
+    strong {
+        font-weight: 600;
+        font-size: rem(20);
+    }
+    .paragraph {
+        // padding-right: 250px;
+    }
+
+    @include media-min("tablet") {
+        
+    }
+}
