@@ -56,56 +56,6 @@ function getIcon($name)
 
 function esgi_customize_register($wp_customize)
 {
-
-    $wp_customize->add_section('esgi-custom', [
-        'title' => __('Personnalisation du thème'),
-        'description' => __('Paramètres du thème.'),
-        'priority' => 1,
-        'capability' => 'edit_theme_options',
-    ]);
-
-    $wp_customize->add_setting('main-color', [
-        'default' => '#3F51B5',
-        'sanitize_callback' => 'sanitize_hex_color',
-    ]);
-
-    $wp_customize->add_control(
-        new WP_Customize_Color_Control(
-            $wp_customize,
-            'main-color',
-            [
-                'label'      => __('Couleur principale', 'ESGI'),
-                'section'    => 'esgi-custom',
-                'settings'   => 'main-color',
-            ]
-        )
-    );
-
-
-    $wp_customize->add_setting('is_dark', [
-        'default' => false,
-        'sanitize_callback' => 'sanitize_checkbox',
-    ]);
-
-    $wp_customize->add_control('is_dark', [
-        'type' => 'checkbox',
-        'section' => 'esgi-custom', // Add a default or your own section
-        'label' => __('Thème sombre'),
-        'description' => __('Activer la version sombre du thème.'),
-    ]);
-
-    $wp_customize->add_setting('has_sidebar', [
-        'default' => false,
-        'sanitize_callback' => 'sanitize_checkbox',
-    ]);
-
-    $wp_customize->add_control('has_sidebar', [
-        'type' => 'checkbox',
-        'section' => 'esgi-custom', // Add a default or your own section
-        'label' => __('Afficher la barre latérale'),
-        'description' => __('Afficher la barre latérale sur les pages d\'article.'),
-    ]);
-
     $wp_customize->add_section('image-paragraph', [
         'title' => __('Section Image & Paragraphe'),
         'description' => __('Section Image & Paragraphe.'),
@@ -113,21 +63,20 @@ function esgi_customize_register($wp_customize)
         'capability' => 'edit_theme_options',
     ]);
 
-    // display or not
-    
-    $wp_customize->add_setting('basic-display', [
+    // display image paragraph
+    $wp_customize->add_setting('display-image-paragraph', [
         'default' => 'No',
         'sanitize_callback' => 'sanitize_custom_option',
     ]);
-    
+
     $wp_customize->add_control(
         new WP_Customize_Control(
             $wp_customize,
-            'basic-display',
+            'display-image-paragraph',
             [
                 'label'      => __('Afficher la section Image & Paragraphe', 'ESGI'),
                 'section'    => 'image-paragraph',
-                'settings'   => 'basic-display',
+                'settings'   => 'display-image-paragraph',
                 'type' => 'select',
                 'choices' => [
                     'Yes' => 'Oui',
@@ -137,22 +86,620 @@ function esgi_customize_register($wp_customize)
         )
     );
 
-    $wp_customize->add_setting('basic-author-callout-text', array(
-        'default' => '',
-        'sanitize_callback' => 'sanitize_custom_text'
+    // Text block image paragraph
+    $wp_customize->add_setting('title-1-image-paragraph', array(
+        'sanitize_callback' => 'sanitize_text'
     ));
-    $wp_customize->add_control(new WP_Customize_Control($wp_customize, 'basic-author-callout-control', array(
-        'label' => 'About Author',
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'title-1-image-paragraph',
+            array(
+                'label'    => __('Titre 1'),
+                'section'  => 'image-paragraph',
+                'settings' => 'title-1-image-paragraph',
+                'type'     => 'text'
+            )
+        )
+    );
+
+    $wp_customize->add_setting('paragraph-1-image-paragraph', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'paragraph-1-image-paragraph',
+            array(
+                'label'    => __('Paragraphe 1'),
+                'section'  => 'image-paragraph',
+                'settings' => 'paragraph-1-image-paragraph',
+                'type'     => 'text'
+            )
+        )
+    );
+
+    $wp_customize->add_setting('title-2-image-paragraph', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'title-2-image-paragraph',
+            array(
+                'label'    => __('Titre 2'),
+                'section'  => 'image-paragraph',
+                'settings' => 'title-2-image-paragraph',
+                'type'     => 'text'
+            )
+        )
+    );
+
+    $wp_customize->add_setting('paragraph-2-image-paragraph', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'paragraph-2-image-paragraph',
+            array(
+                'label'    => __('Paragraphe 2'),
+                'section'  => 'image-paragraph',
+                'settings' => 'paragraph-2-image-paragraph',
+                'type'     => 'text'
+            )
+        )
+    );
+
+    $wp_customize->add_setting('title-3-image-paragraph', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'title-3-image-paragraph',
+            array(
+                'label'    => __('Titre 3'),
+                'section'  => 'image-paragraph',
+                'settings' => 'title-3-image-paragraph',
+                'type'     => 'text'
+            )
+        )
+    );
+
+    $wp_customize->add_setting('paragraph-3-image-paragraph', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'paragraph-3-image-paragraph',
+            array(
+                'label'    => __('Paragraphe 3'),
+                'section'  => 'image-paragraph',
+                'settings' => 'paragraph-3-image-paragraph',
+                'type'     => 'text'
+            )
+        )
+    );
+    // Image block image paragraph
+
+    $wp_customize->add_setting('image-block-image-paragraph', array(
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'image-block-image-paragraph', array(
+        'label' => 'Upload Image',
         'section' => 'image-paragraph',
-        'settings' => 'basic-author-callout-text',
-        'type' => 'textarea'
+        'settings' => 'image-block-image-paragraph',
+        'button_labels' => array( // All These labels are optional
+            'select' => 'Select Image',
+            'remove' => 'Remove Image',
+            'change' => 'Change Image',
+        )
+    )));
+
+    // Section Our Services
+
+
+
+    $wp_customize->add_section('our-services', [
+        'title' => __('Section Our Services'),
+        'description' => __('Section Our Services.'),
+        'priority' => 1,
+        'capability' => 'edit_theme_options',
+    ]);
+
+    // display image paragraph
+    $wp_customize->add_setting('display-our-services', [
+        'default' => 'No',
+        'sanitize_callback' => 'sanitize_custom_option',
+    ]);
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'display-our-services',
+            [
+                'label'      => __('Afficher la section Our Services', 'ESGI'),
+                'section'    => 'our-services',
+                'settings'   => 'display-our-services',
+                'type' => 'select',
+                'choices' => [
+                    'Yes' => 'Oui',
+                    'No' => 'Non',
+                ],
+            ]
+        )
+    );
+
+    $wp_customize->add_setting('services-image-1', array(
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'services-image-1', array(
+        'label' => 'Image 1',
+        'section' => 'our-services',
+        'settings' => 'services-image-1',
+        'button_labels' => array(
+            'select' => 'Select Image',
+            'remove' => 'Remove Image',
+            'change' => 'Change Image',
+        )
+    )));
+
+    $wp_customize->add_setting('services-image-2', array(
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'services-image-2', array(
+        'label' => 'Image 2',
+        'section' => 'our-services',
+        'settings' => 'services-image-2',
+        'button_labels' => array(
+            'select' => 'Select Image',
+            'remove' => 'Remove Image',
+            'change' => 'Change Image',
+        )
+    )));
+
+    $wp_customize->add_setting('services-title', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'services-title',
+            array(
+                'label'    => __('Titre'),
+                'section'  => 'our-services',
+                'settings' => 'services-title',
+                'type'     => 'text'
+            )
+        )
+    );
+
+    $wp_customize->add_setting('services-text', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'services-text',
+            array(
+                'label'    => __('Texte'),
+                'section'  => 'our-services',
+                'settings' => 'services-text',
+                'type'     => 'text'
+            )
+        )
+    );
+
+
+    $wp_customize->add_setting('services-image-3', array(
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'services-image-3', array(
+        'label' => 'Image 3',
+        'section' => 'our-services',
+        'settings' => 'services-image-3',
+        'button_labels' => array(
+            'select' => 'Select Image',
+            'remove' => 'Remove Image',
+            'change' => 'Change Image',
+        )
+    )));
+
+    // Section Our Partners
+    $wp_customize->add_section('our-partners', [
+        'title' => __('Section Our Partners'),
+        'description' => __('Section Our Partners'),
+        'priority' => 1,
+        'capability' => 'edit_theme_options',
+    ]);
+
+    // display image paragraph
+    $wp_customize->add_setting('display-our-partners', [
+        'default' => 'No',
+        'sanitize_callback' => 'sanitize_custom_option',
+    ]);
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'display-our-partners',
+            [
+                'label'      => __('Afficher la section Our Partners', 'ESGI'),
+                'section'    => 'our-partners',
+                'settings'   => 'display-our-partners',
+                'type' => 'select',
+                'choices' => [
+                    'Yes' => 'Oui',
+                    'No' => 'Non',
+                ],
+            ]
+        )
+    );
+
+    $wp_customize->add_setting('partners-logo-1', array(
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'partners-logo-1', array(
+        'label' => 'Logo 1',
+        'section' => 'our-partners',
+        'settings' => 'partners-logo-1',
+        'button_labels' => array(
+            'select' => 'Select Logo',
+            'remove' => 'Remove Logo',
+            'change' => 'Change Logo',
+        )
+    )));
+
+    // Section Our Team
+    $wp_customize->add_section('our-team', [
+        'title' => __('Section Our Team'),
+        'description' => __('Section Our Team'),
+        'priority' => 1,
+        'capability' => 'edit_theme_options',
+    ]);
+
+    // display our team
+    $wp_customize->add_setting('display-our-team', [
+        'default' => 'No',
+        'sanitize_callback' => 'sanitize_custom_option',
+    ]);
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'display-our-team',
+            [
+                'label'      => __('Afficher la section Our Team', 'ESGI'),
+                'section'    => 'our-team',
+                'settings'   => 'display-our-team',
+                'type' => 'select',
+                'choices' => [
+                    'Yes' => 'Oui',
+                    'No' => 'Non',
+                ],
+            ]
+        )
+    );
+
+
+
+    $wp_customize->add_setting('our-team-title', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'our-team-title',
+            array(
+                'label'    => __('Titre'),
+                'section'  => 'our-team',
+                'settings' => 'our-team-title',
+                'type'     => 'text'
+            )
+        )
+    );
+
+    $wp_customize->add_setting('our-team-image-1', array(
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'partners-logo-1', array(
+        'label' => 'Photo 1',
+        'section' => 'our-team',
+        'settings' => 'our-team-image-1',
+        'button_labels' => array(
+            'select' => 'Select Photo',
+            'remove' => 'Remove Photo',
+            'change' => 'Change Photo',
+        )
     )));
 
 
+    $wp_customize->add_setting('our-team-job-1', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'our-team-job-1',
+            array(
+                'label'    => __('Profession 1'),
+                'section'  => 'our-team',
+                'settings' => 'our-team-job-1',
+                'type'     => 'text'
+            )
+        )
+    );
+
+    $wp_customize->add_setting('our-team-phone-1', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'our-team-phone-1',
+            array(
+                'label'    => __('Téléphone 1'),
+                'section'  => 'our-team',
+                'settings' => 'our-team-phone-1',
+                'type'     => 'text'
+            )
+        )
+    );
+
+
+    $wp_customize->add_setting('our-team-mail-1', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'our-team-mail-1',
+            array(
+                'label'    => __('Email 1'),
+                'section'  => 'our-team',
+                'settings' => 'our-team-mail-1',
+                'type'     => 'text'
+            )
+        )
+    );
 
 
 
 
+
+
+    $wp_customize->add_setting('our-team-image-2', array(
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'our-team-image-2', array(
+        'label' => 'Photo 2',
+        'section' => 'our-team',
+        'settings' => 'our-team-image-2',
+        'button_labels' => array(
+            'select' => 'Select Photo',
+            'remove' => 'Remove Photo',
+            'change' => 'Change Photo',
+        )
+    )));
+
+
+    $wp_customize->add_setting('our-team-job-2', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'our-team-job-2',
+            array(
+                'label'    => __('Profession 2'),
+                'section'  => 'our-team',
+                'settings' => 'our-team-job-2',
+                'type'     => 'text'
+            )
+        )
+    );
+
+    $wp_customize->add_setting('our-team-phone-2', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'our-team-phone-2',
+            array(
+                'label'    => __('Téléphone 2'),
+                'section'  => 'our-team',
+                'settings' => 'our-team-phone-2',
+                'type'     => 'text'
+            )
+        )
+    );
+
+
+    $wp_customize->add_setting('our-team-mail-2', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'our-team-mail-2',
+            array(
+                'label'    => __('Email 2'),
+                'section'  => 'our-team',
+                'settings' => 'our-team-mail-2',
+                'type'     => 'text'
+            )
+        )
+    );
+
+
+
+
+    $wp_customize->add_setting('our-team-image-3', array(
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'our-team-image-3', array(
+        'label' => 'Photo 3',
+        'section' => 'our-team',
+        'settings' => 'our-team-image-3',
+        'button_labels' => array(
+            'select' => 'Select Photo',
+            'remove' => 'Remove Photo',
+            'change' => 'Change Photo',
+        )
+    )));
+
+
+    $wp_customize->add_setting('our-team-job-3', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'our-team-job-3',
+            array(
+                'label'    => __('Profession 3'),
+                'section'  => 'our-team',
+                'settings' => 'our-team-job-3',
+                'type'     => 'text'
+            )
+        )
+    );
+
+    $wp_customize->add_setting('our-team-phone-3', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'our-team-phone-3',
+            array(
+                'label'    => __('Téléphone 3'),
+                'section'  => 'our-team',
+                'settings' => 'our-team-phone-3',
+                'type'     => 'text'
+            )
+        )
+    );
+
+
+    $wp_customize->add_setting('our-team-mail-3', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'our-team-mail-3',
+            array(
+                'label'    => __('Email 3'),
+                'section'  => 'our-team',
+                'settings' => 'our-team-mail-3',
+                'type'     => 'text'
+            )
+        )
+    );
+
+
+
+
+
+    $wp_customize->add_setting('our-team-image-4', array(
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'our-team-image-4', array(
+        'label' => 'Photo 4',
+        'section' => 'our-team',
+        'settings' => 'our-team-image-4',
+        'button_labels' => array(
+            'select' => 'Select Photo',
+            'remove' => 'Remove Photo',
+            'change' => 'Change Photo',
+        )
+    )));
+
+
+    $wp_customize->add_setting('our-team-job-4', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'our-team-job-4',
+            array(
+                'label'    => __('Profession 4'),
+                'section'  => 'our-team',
+                'settings' => 'our-team-job-4',
+                'type'     => 'text'
+            )
+        )
+    );
+
+    $wp_customize->add_setting('our-team-phone-4', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'our-team-phone-4',
+            array(
+                'label'    => __('Téléphone 4'),
+                'section'  => 'our-team',
+                'settings' => 'our-team-phone-4',
+                'type'     => 'text'
+            )
+        )
+    );
+
+
+    $wp_customize->add_setting('our-team-mail-4', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'our-team-mail-4',
+            array(
+                'label'    => __('Email 4'),
+                'section'  => 'our-team',
+                'settings' => 'our-team-mail-4',
+                'type'     => 'text'
+            )
+        )
+    );
+
+    
 }
 
 add_action('customize_register', 'esgi_customize_register');
@@ -162,4 +709,9 @@ add_action('customize_register', 'esgi_customize_register');
 function sanitize_custom_option($val)
 {
     return ($val === "No") ? "No" : "Yes";
+}
+
+function sanitize_text($text)
+{
+    return sanitize_text_field($text);
 }
