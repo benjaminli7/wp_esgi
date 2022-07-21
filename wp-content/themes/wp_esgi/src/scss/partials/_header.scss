@@ -2,14 +2,14 @@ header {
     .menu-container {
         display: flex;
         justify-content: space-between;
-        padding: rem(30) 0 rem(15) 0;
+        padding: rem(30) 0;
     }
     
     .custom-logo-active {
         filter: invert(100%) sepia(66%) saturate(933%) hue-rotate(159deg) brightness(119%) contrast(108%);
     }
     
-    .main-nav {
+    .menu-flex {
         display: none;
     }
     

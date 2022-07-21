@@ -4,23 +4,52 @@ body {
     font-family: 'Mulish', sans-serif;
 }
 
-.intro {
-    // padding-left: 250px;
-    img {
-        padding: 40px 0;
-        width: 100%;
-        height: auto;
-        display:block;
-    }
-    strong {
-        font-weight: 600;
-        font-size: rem(20);
-    }
-    .paragraph {
-        // padding-right: 250px;
-    }
+.grey {
+    color: #8A8A8A;
+}
 
-    @include media-min("tablet") {
-        
+img {
+    width: 100%;
+    height: auto;
+}
+
+.title-page {
+    h1 {
+        font-weight:700;
     }
+    margin-top: 60px;
+    margin-bottom: 60px;
+}
+
+.section {
+    padding-top: 40px;
+    padding-bottom: 40px;
+}
+
+.title-section {
+    margin-bottom: 40px;
+    font-weight: 700;
+}
+
+p, ul {
+    margin-bottom: 0;
+}
+
+#searchsubmit {
+    display: none;
+}
+
+#s {
+    background: none;
+    border: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.297722);
+    color: #fff;
+    &::placeholder {
+        opacity: 0.6;
+    }
+}
+
+ul, li {
+    padding-left: 0;
+    list-style-type: none;
 }

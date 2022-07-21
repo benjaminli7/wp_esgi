@@ -10304,25 +10304,68 @@ body {
   font-family: "Mulish", sans-serif;
 }
 
-.intro img {
-  padding: 40px 0;
+.grey {
+  color: #8A8A8A;
+}
+
+img {
   width: 100%;
   height: auto;
-  display: block;
 }
-.intro strong {
-  font-weight: 600;
-  font-size: 1.25rem;
+
+.title-page {
+  margin-top: 60px;
+  margin-bottom: 60px;
 }
+.title-page h1 {
+  font-weight: 700;
+}
+
+.section {
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.title-section {
+  margin-bottom: 40px;
+  font-weight: 700;
+}
+
+p, ul {
+  margin-bottom: 0;
+}
+
+#searchsubmit {
+  display: none;
+}
+
+#s {
+  background: none;
+  border: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.297722);
+  color: #fff;
+}
+#s::-moz-placeholder {
+  opacity: 0.6;
+}
+#s::placeholder {
+  opacity: 0.6;
+}
+
+ul, li {
+  padding-left: 0;
+  list-style-type: none;
+}
+
 header .menu-container {
   display: flex;
   justify-content: space-between;
-  padding: 1.875rem 0 0.9375rem 0;
+  padding: 1.875rem 0;
 }
 header .custom-logo-active {
   filter: invert(100%) sepia(66%) saturate(933%) hue-rotate(159deg) brightness(119%) contrast(108%);
 }
-header .main-nav {
+header .menu-flex {
   display: none;
 }
 header .hamburger, header .close {
@@ -10400,4 +10443,110 @@ header .menu .menu-item a:hover::before {
   display: flex;
   -moz-column-gap: 10px;
        column-gap: 10px;
+}
+.image-paragraph img {
+  width: 100%;
+  height: auto;
+}
+
+.paragraph {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+.paragraph strong {
+  font-weight: 600;
+  font-size: 2rem;
+}
+
+.our-services .services-text span {
+  font-weight: 600;
+  position: relative;
+}
+.our-services .services-text span::before {
+  content: "";
+  position: absolute;
+  bottom: -5px;
+  height: 3px;
+  width: 100%;
+  background: linear-gradient(90deg, #FFD0A8 0%, #FF4FC0 100%);
+}
+@media screen and (max-width: 767px) {
+  .our-services .services-text {
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.our-team .person h3 {
+  font-weight: 600;
+  font-size: 1.5rem;
+}
+.our-team .person p {
+  font-size: 0.875rem;
+}
+.our-team .person img {
+  margin-bottom: 15px;
+}
+@media screen and (max-width: 767px) {
+  .our-team .person {
+    padding: 25px 0;
+  }
+}
+
+.page-404 {
+  background-color: #050A3A;
+  height: 90vh;
+}
+.page-404 .page-404-container {
+  color: #fff;
+  padding-top: 100px;
+}
+.page-404 .page-404-container h1 {
+  font-size: 2.5rem;
+}
+
+.search-container {
+  padding: 40px 0 80px 0;
+}
+.search-container .search-query {
+  position: relative;
+}
+.search-container .search-query::before {
+  content: "";
+  position: absolute;
+  bottom: -1px;
+  background: linear-gradient(90deg, #FFD0A8 0%, #FF4FC0 100%);
+  width: 100%;
+  height: 3px;
+}
+.search-container .search-title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 100px;
+}
+.search-container a {
+  text-decoration: none;
+}
+.search-container .post-link {
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 2.4rem;
+  margin-bottom: 15px;
+}
+.search-container .post-category li a, .search-container .post-link {
+  color: #050A3A;
+}
+.search-container .post-item {
+  padding: 15px;
+}
+.search-container .post-date-category {
+  padding: 10px 0;
+}
+.search-container .post-date-category span, .search-container .post-date-category a {
+  font-weight: 700;
+}
+.search-container .post-excerpt {
+  color: #8A8A8A;
 }

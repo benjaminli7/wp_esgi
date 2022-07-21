@@ -6,6 +6,7 @@
 	<meta charset="<?php bloginfo('charset'); ?>" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<?php wp_head(); ?>
+
 </head>
 
 <body <?php body_class(); ?>>
@@ -16,7 +17,7 @@
 			<div class="menu-container">
 				<div class="logo">
 					<?php
-					
+
 					if (function_exists('the_custom_logo')) {
 						the_custom_logo();
 					} else {
@@ -32,15 +33,22 @@
 					<img src="<?php echo get_template_directory_uri(); ?>/src/images/Close.svg" alt="Close" />
 				</div>
 			</div>
-			<?php
-			// Afficher le menu principal
-			if (has_nav_menu('primary')) {
-				wp_nav_menu([
-					'theme_location' => 'primary',
-					'container' => 'nav',
-					'container_class' => 'main-nav'
-				]);
-			}
-			?>
+			<div class="menu-flex">
+				<div class="d-flex justify-content-between">
+					<div class="search-form">
+						<?php get_search_form(); ?>
+					</div>
+					<?php
+					// Afficher le menu principal
+					if (has_nav_menu('primary')) {
+						wp_nav_menu([
+							'theme_location' => 'primary',
+							'container' => 'nav',
+							'container_class' => 'main-nav'
+						]);
+					}
+					?>
+				</div>
+			</div>
 		</div>
 	</header>

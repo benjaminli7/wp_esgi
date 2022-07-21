@@ -239,6 +239,23 @@ function esgi_customize_register($wp_customize)
         )
     );
 
+    $wp_customize->add_setting('services-title', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'services-title',
+            array(
+                'label'    => __('Titre'),
+                'section'  => 'our-services',
+                'settings' => 'services-title',
+                'type'     => 'text'
+            )
+        )
+    );
+
     $wp_customize->add_setting('services-image-1', array(
         'sanitize_callback' => 'esc_url_raw'
     ));
@@ -269,22 +286,6 @@ function esgi_customize_register($wp_customize)
         )
     )));
 
-    $wp_customize->add_setting('services-title', array(
-        'sanitize_callback' => 'sanitize_text'
-    ));
-
-    $wp_customize->add_control(
-        new WP_Customize_Control(
-            $wp_customize,
-            'services-title',
-            array(
-                'label'    => __('Titre'),
-                'section'  => 'our-services',
-                'settings' => 'services-title',
-                'type'     => 'text'
-            )
-        )
-    );
 
     $wp_customize->add_setting('services-text', array(
         'sanitize_callback' => 'sanitize_text'
@@ -350,6 +351,23 @@ function esgi_customize_register($wp_customize)
         )
     );
 
+    $wp_customize->add_setting('partners-title', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'partners-title',
+            array(
+                'label'    => __('Titre'),
+                'section'  => 'our-partners',
+                'settings' => 'partners-title',
+                'type'     => 'text'
+            )
+        )
+    );
+
     $wp_customize->add_setting('partners-logo-1', array(
         'sanitize_callback' => 'esc_url_raw'
     ));
@@ -358,6 +376,81 @@ function esgi_customize_register($wp_customize)
         'label' => 'Logo 1',
         'section' => 'our-partners',
         'settings' => 'partners-logo-1',
+        'button_labels' => array(
+            'select' => 'Select Logo',
+            'remove' => 'Remove Logo',
+            'change' => 'Change Logo',
+        )
+    )));
+
+    $wp_customize->add_setting('partners-logo-2', array(
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'partners-logo-2', array(
+        'label' => 'Logo 2',
+        'section' => 'our-partners',
+        'settings' => 'partners-logo-2',
+        'button_labels' => array(
+            'select' => 'Select Logo',
+            'remove' => 'Remove Logo',
+            'change' => 'Change Logo',
+        )
+    )));
+
+    $wp_customize->add_setting('partners-logo-3', array(
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'partners-logo-3', array(
+        'label' => 'Logo 3',
+        'section' => 'our-partners',
+        'settings' => 'partners-logo-3',
+        'button_labels' => array(
+            'select' => 'Select Logo',
+            'remove' => 'Remove Logo',
+            'change' => 'Change Logo',
+        )
+    )));
+
+    $wp_customize->add_setting('partners-logo-4', array(
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'partners-logo-4', array(
+        'label' => 'Logo 4',
+        'section' => 'our-partners',
+        'settings' => 'partners-logo-4',
+        'button_labels' => array(
+            'select' => 'Select Logo',
+            'remove' => 'Remove Logo',
+            'change' => 'Change Logo',
+        )
+    )));
+
+    $wp_customize->add_setting('partners-logo-5', array(
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'partners-logo-5', array(
+        'label' => 'Logo 5',
+        'section' => 'our-partners',
+        'settings' => 'partners-logo-5',
+        'button_labels' => array(
+            'select' => 'Select Logo',
+            'remove' => 'Remove Logo',
+            'change' => 'Change Logo',
+        )
+    )));
+
+    $wp_customize->add_setting('partners-logo-6', array(
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'partners-logo-6', array(
+        'label' => 'Logo 6',
+        'section' => 'our-partners',
+        'settings' => 'partners-logo-6',
         'button_labels' => array(
             'select' => 'Select Logo',
             'remove' => 'Remove Logo',
@@ -419,7 +512,7 @@ function esgi_customize_register($wp_customize)
         'sanitize_callback' => 'esc_url_raw'
     ));
 
-    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'partners-logo-1', array(
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'our-team-image-1', array(
         'label' => 'Photo 1',
         'section' => 'our-team',
         'settings' => 'our-team-image-1',
@@ -699,10 +792,71 @@ function esgi_customize_register($wp_customize)
         )
     );
 
+    $wp_customize->add_section('image-full-width', [
+        'title' => __('Image full width'),
+        'description' => __('Image full width.'),
+        'priority' => 1,
+        'capability' => 'edit_theme_options',
+    ]);
+
+    $wp_customize->add_setting('display-image-full-width', [
+        'default' => 'No',
+        'sanitize_callback' => 'sanitize_custom_option',
+    ]);
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'display-image-full-width',
+            [
+                'label'      => __('Afficher la section Image full width', 'ESGI'),
+                'section'    => 'image-full-width',
+                'settings'   => 'display-image-full-width',
+                'type' => 'select',
+                'choices' => [
+                    'Yes' => 'Oui',
+                    'No' => 'Non',
+                ],
+            ]
+        )
+    );
+
     
+    $wp_customize->add_setting('image-full', array(
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'image-full', array(
+        'label' => 'Image',
+        'section' => 'image-full-width',
+        'settings' => 'image-full',
+        'button_labels' => array(
+            'select' => 'Select Image',
+            'remove' => 'Remove Image',
+            'change' => 'Change Image',
+        )
+    )));
+
+
 }
 
 add_action('customize_register', 'esgi_customize_register');
+
+// WIDGETS
+
+function esgi_widgets_init(){
+    if ( function_exists('register_sidebar') )
+      register_sidebar([
+        'id' => 'zone-1',
+        'name' => 'Zone des widgets de la sidebar',
+        'before_widget' => '<div class = "widget-zone">',
+        'after_widget' => '</div>',
+        'before_title' => '<h3>',
+        'after_title' => '</h3>',
+      ]
+    );
+}
+add_action('widgets_init', 'esgi_widgets_init');
 
 
 

@@ -1,7 +1,8 @@
 $(document).ready(function () {
   ajaxizePageLinks();
+  $("#s").attr("placeholder", "Type something to search...");
   $(".hamburger").click(function () {
-    $(".main-nav").addClass("open");
+    $(".menu-flex").addClass("open");
     $(".site-header").addClass("menu-open");
     $(".hamburger").toggleClass("hide");
     $(".close").toggleClass("hide");
@@ -9,7 +10,7 @@ $(document).ready(function () {
   });
 
   $(".close").click(function () {
-    $(".main-nav").removeClass("open");
+    $(".menu-flex").removeClass("open");
     $(".site-header").removeClass("menu-open");
     $(".hamburger").toggleClass("hide");
     $(".close").toggleClass("hide");

@@ -4042,15 +4042,16 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 });
 $(document).ready(function () {
   ajaxizePageLinks();
+  $("#s").attr("placeholder", "Type something to search...");
   $(".hamburger").click(function () {
-    $(".main-nav").addClass("open");
+    $(".menu-flex").addClass("open");
     $(".site-header").addClass("menu-open");
     $(".hamburger").toggleClass("hide");
     $(".close").toggleClass("hide");
     $(".custom-logo").addClass("custom-logo-active");
   });
   $(".close").click(function () {
-    $(".main-nav").removeClass("open");
+    $(".menu-flex").removeClass("open");
     $(".site-header").removeClass("menu-open");
     $(".hamburger").toggleClass("hide");
     $(".close").toggleClass("hide");

@@ -1,0 +1,18 @@
+.our-team {
+    .person {
+        h3 {
+            font-weight: 600;
+            font-size: rem(24);
+        }
+        p {
+            font-size: rem(14);
+        }
+        img {
+            margin-bottom: 15px;
+        }
+        @include media-max("tablet") {
+            padding: 25px 0;
+        }
+    }
+}
+

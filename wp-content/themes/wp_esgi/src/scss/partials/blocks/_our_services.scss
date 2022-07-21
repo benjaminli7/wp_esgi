@@ -1,0 +1,23 @@
+.our-services {
+    .services-text {
+        span {
+
+            font-weight: 600;
+            position: relative;
+            &::before {
+                content: "";
+                position: absolute;
+                bottom: -5px;
+                height: 3px;
+                width: 100%;
+                background: linear-gradient(90deg, #FFD0A8 0%, #FF4FC0 100%);
+            }
+        }
+        @include media-max("tablet") {
+            height: 300px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    }
+}
