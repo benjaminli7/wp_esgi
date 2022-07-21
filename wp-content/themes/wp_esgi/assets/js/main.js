@@ -4043,6 +4043,7 @@ function _typeof(obj) { "@babel/helpers - typeof"; return _typeof = "function" =
 $(document).ready(function () {
   ajaxizePageLinks();
   $("#s").attr("placeholder", "Type something to search...");
+  $("#comment").attr("placeholder", "Message");
   $(".hamburger").click(function () {
     $(".menu-flex").addClass("open");
     $(".site-header").addClass("menu-open");

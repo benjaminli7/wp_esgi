@@ -10313,6 +10313,10 @@ img {
   height: auto;
 }
 
+.text-right {
+  text-align: right;
+}
+
 .title-page {
   margin-top: 60px;
   margin-bottom: 60px;
@@ -10339,22 +10343,26 @@ p, ul {
   display: none;
 }
 
-#s {
+#s, input[type=text] {
   background: none;
   border: none;
   border-bottom: 1px solid rgba(255, 255, 255, 0.297722);
   color: #fff;
 }
-#s::-moz-placeholder {
+#s::-moz-placeholder, input[type=text]::-moz-placeholder {
   opacity: 0.6;
 }
-#s::placeholder {
+#s::placeholder, input[type=text]::placeholder {
   opacity: 0.6;
 }
 
 ul, li {
   padding-left: 0;
   list-style-type: none;
+}
+
+.content {
+  margin-bottom: 50px;
 }
 
 header .menu-container {
@@ -10425,8 +10433,10 @@ header .menu .menu-item a:hover::before {
 }
 .footer__contacts, .footer__socials {
   display: flex;
-  -moz-column-gap: 10px;
-       column-gap: 10px;
+}
+.footer__contacts {
+  -moz-column-gap: 50px;
+       column-gap: 50px;
 }
 .footer__contact h2, .footer__contact p {
   text-align: right;
@@ -10441,8 +10451,8 @@ header .menu .menu-item a:hover::before {
 }
 .footer__socials {
   display: flex;
-  -moz-column-gap: 10px;
-       column-gap: 10px;
+  -moz-column-gap: 35px;
+       column-gap: 35px;
 }
 .image-paragraph img {
   width: 100%;
@@ -10549,4 +10559,220 @@ header .menu .menu-item a:hover::before {
 }
 .search-container .post-excerpt {
   color: #8A8A8A;
+}
+
+.contact .contact-items {
+  margin-bottom: 40px;
+}
+.contact .contact-items .contact-item h3 {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.contact .contact-items .contact-item p {
+  font-size: 0.875rem;
+}
+.contact .contact-image {
+  margin-bottom: 70px;
+}
+.contact .contact-form input[type=text], .contact .contact-form textarea {
+  border-bottom: 1px solid #E4E4E4 !important;
+}
+.contact .contact-form input[type=submit] {
+  background: none;
+  border: none;
+  font-weight: 700;
+}
+.contact .contact-form textarea {
+  border: none;
+}
+.contact .contact-form input::-moz-placeholder, .contact .contact-form textarea::-moz-placeholder {
+  color: #ADADAD;
+}
+.contact .contact-form input::placeholder, .contact .contact-form textarea::placeholder {
+  color: #ADADAD;
+}
+.contact .contact-form .input {
+  margin: 10px 0;
+}
+.contact .contact-form .contact-form-title {
+  font-weight: 600;
+}
+.contact .contact-form .contact-form-subtitle {
+  margin-bottom: 25px;
+}
+
+.widget-zone {
+  margin-bottom: 15px;
+}
+.widget-zone .wp-block-search__button {
+  display: none;
+}
+.widget-zone .wp-block-search__input {
+  border: none;
+  border-bottom: 1px solid #E4E4E4;
+}
+.widget-zone .wp-block-search__input::-moz-placeholder {
+  color: #ADADAD;
+}
+.widget-zone .wp-block-search__input::placeholder {
+  color: #ADADAD;
+}
+.widget-zone .wp-block-search__label {
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.widget-zone > p {
+  font-weight: 700;
+}
+.widget-zone .wp-block-archives li, .widget-zone .wp-block-categories li {
+  list-style-type: initial;
+  list-style-position: inside;
+}
+.widget-zone .wp-block-archives li::marker, .widget-zone .wp-block-categories li::marker {
+  color: orange;
+}
+.widget-zone .wp-block-archives li, .widget-zone .wp-block-categories li {
+  margin-bottom: 5px;
+}
+.widget-zone .wp-block-archives li a, .widget-zone .wp-block-categories li a {
+  text-decoration: none;
+  color: #8A8A8A;
+}
+.widget-zone .wp-block-tag-cloud a {
+  background: #F8F8F8;
+  padding: 10px;
+  color: #969696;
+  text-decoration: none;
+}
+.widget-zone .wp-block-latest-posts {
+  display: flex;
+  flex-direction: column;
+  row-gap: 15px;
+}
+.widget-zone .wp-block-latest-posts li .wp-block-latest-posts__featured-image {
+  float: left;
+}
+.widget-zone .wp-block-latest-posts li .wp-block-latest-posts__post-title {
+  text-decoration: none;
+  color: #8A8A8A;
+  line-height: 2.375rem;
+  position: relative;
+  left: 15px;
+}
+.widget-zone .wp-block-latest-posts li .wp-block-latest-posts__post-date {
+  color: #8A8A8A;
+  font-size: 0.8125rem;
+  position: relative;
+  left: 15px;
+}
+
+.posts-container .pagination {
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  -moz-column-gap: 10px;
+       column-gap: 10px;
+}
+.posts-container .pagination .page-numbers {
+  text-decoration: none;
+  padding: 5px 10px;
+  color: #050A3A;
+}
+.posts-container .pagination .current {
+  background-color: #050A3A;
+  color: white;
+}
+.posts-container .post-item {
+  padding: 10px;
+}
+.posts-container .post-categories li a, .posts-container .post-link {
+  text-decoration: none;
+  color: #050A3A;
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+.posts-container .post-excerpt p {
+  color: #8A8A8A;
+  line-height: 1.875rem;
+  font-size: 0.9375rem;
+}
+.posts-container .post-image {
+  position: relative;
+  margin-bottom: 20px;
+}
+.posts-container .post-category {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+.posts-container .post-category .post-categories li a {
+  color: white;
+  font-weight: 700;
+  font-size: 1.25rem;
+}
+
+.single-post .date-category {
+  padding-top: 30px;
+  padding-bottom: 30px;
+}
+.single-post .date-category .post-categories li a, .single-post .date-category .post-date {
+  text-decoration: none;
+  font-weight: 700;
+  color: #050A3A;
+}
+.single-post .comments {
+  margin-top: 35px;
+  margin-bottom: 50px;
+}
+.single-post .comments .comments-title {
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+.single-post .comments .comments-list {
+  margin-bottom: 40px;
+}
+.single-post .comments .comment {
+  background-color: #F9F9F9;
+  padding: 25px;
+}
+.single-post .comments .comment .comment-author {
+  font-weight: 700;
+}
+.single-post .comments .comment .comment-content {
+  color: #8A8A8A;
+  padding: 10px 0;
+}
+.single-post .comments .comment .reply .comment-reply-link {
+  text-decoration: none;
+  color: #050A3A;
+  font-weight: 700;
+}
+.single-post .comment-reply-title {
+  font-weight: 600;
+  margin-bottom: 40px;
+}
+.single-post .logged-in-as {
+  display: none;
+}
+.single-post .comment-form-comment label {
+  display: none;
+}
+.single-post .comment-form-comment #comment {
+  border: none;
+  border-bottom: 1px solid #8A8A8A;
+}
+.single-post .comment-form-comment #comment::-moz-placeholder {
+  color: #ADADAD;
+}
+.single-post .comment-form-comment #comment::placeholder {
+  color: #ADADAD;
+}
+.single-post .form-submit {
+  margin-top: 15px;
+}
+.single-post .form-submit .submit {
+  border: none;
+  background: none;
+  font-weight: 700;
+  color: #050A3A;
 }

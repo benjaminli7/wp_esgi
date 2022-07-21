@@ -16,8 +16,10 @@
 
     &__contacts, &__socials {
         display: flex;
-        column-gap: 10px;
 
+    }
+    &__contacts {
+        column-gap: 50px;
     }
 
     &__contact {
@@ -40,7 +42,7 @@
 
     &__socials {
         display: flex;
-        column-gap: 10px;
+        column-gap: 35px;
     }
 
     &__creator {

@@ -1,6 +1,8 @@
 $(document).ready(function () {
   ajaxizePageLinks();
   $("#s").attr("placeholder", "Type something to search...");
+  $("#comment").attr("placeholder", "Message");
+
   $(".hamburger").click(function () {
     $(".menu-flex").addClass("open");
     $(".site-header").addClass("menu-open");

@@ -1,0 +1,54 @@
+.posts-container {
+    .pagination {
+        height: fit-content;
+        column-gap: 10px;
+        .page-numbers {
+            text-decoration: none;
+            padding: 5px 10px;
+            color: #050A3A;
+        }
+        .current {
+            background-color: #050A3A;
+            color: white;
+        }
+    }
+
+    .post-item {
+        padding: 10px;
+    }
+
+    .post-categories li a, .post-link {
+        text-decoration: none;
+        color: #050A3A;
+        font-weight: 700;
+        font-size: rem(24);
+    }
+
+    .post-excerpt {
+        p {
+            color: #8A8A8A;
+            line-height: rem(30);
+            font-size: rem(15);
+        }
+    }
+
+
+
+    .post-image {
+        position: relative;
+        margin-bottom: 20px;
+    }
+
+    .post-category {
+
+        position: absolute;
+        top: 10px;
+        left: 10px;
+        .post-categories li a {
+            color: white;
+            font-weight: 700;
+            font-size: rem(20);
+        }
+    }
+
+}

@@ -838,6 +838,397 @@ function esgi_customize_register($wp_customize)
     )));
 
 
+    $wp_customize->add_section('contact', [
+        'title' => __('Contact'),
+        'description' => __('Contact.'),
+        'priority' => 1,
+        'capability' => 'edit_theme_options',
+    ]);
+
+    $wp_customize->add_setting('display-contact', [
+        'default' => 'No',
+        'sanitize_callback' => 'sanitize_custom_option',
+    ]);
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'display-contact',
+            [
+                'label'      => __('Afficher la section Contact', 'ESGI'),
+                'section'    => 'contact',
+                'settings'   => 'display-contact',
+                'type' => 'select',
+                'choices' => [
+                    'Yes' => 'Oui',
+                    'No' => 'Non',
+                ],
+            ]
+        )
+    );
+
+    $wp_customize->add_setting('image-contact', array(
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'image-contact', array(
+        'label' => 'Image',
+        'section' => 'contact',
+        'settings' => 'image-contact',
+        'button_labels' => array(
+            'select' => 'Select Image',
+            'remove' => 'Remove Image',
+            'change' => 'Change Image',
+        )
+    )));
+
+    $wp_customize->add_setting('location', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'location',
+            array(
+                'label'    => __('Location label'),
+                'section'  => 'contact',
+                'settings' => 'location',
+                'type'     => 'text'
+            )
+        )
+    );
+
+    $wp_customize->add_setting('address-1', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'address-1',
+            array(
+                'label'    => __('Adresse 1'),
+                'section'  => 'contact',
+                'settings' => 'address-1',
+                'type'     => 'text'
+            )
+        )
+    );
+
+    $wp_customize->add_setting('address-2', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'address-2',
+            array(
+                'label'    => __('Adresse 2'),
+                'section'  => 'contact',
+                'settings' => 'address-2',
+                'type'     => 'text'
+            )
+        )
+    );
+
+
+
+
+
+
+
+    $wp_customize->add_setting('job-1', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'job-1',
+            array(
+                'label'    => __('Profession 1'),
+                'section'  => 'contact',
+                'settings' => 'job-1',
+                'type'     => 'text'
+            )
+        )
+    );
+
+    $wp_customize->add_setting('phone-1', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'phone-1',
+            array(
+                'label'    => __('Téléphone 1'),
+                'section'  => 'contact',
+                'settings' => 'phone-1',
+                'type'     => 'text'
+            )
+        )
+    );
+
+
+    $wp_customize->add_setting('mail-1', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'mail-1',
+            array(
+                'label'    => __('Email 1'),
+                'section'  => 'contact',
+                'settings' => 'mail-1',
+                'type'     => 'text'
+            )
+        )
+    );
+
+    $wp_customize->add_setting('job-2', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'job-2',
+            array(
+                'label'    => __('Profession 2'),
+                'section'  => 'contact',
+                'settings' => 'job-2',
+                'type'     => 'text'
+            )
+        )
+    );
+
+    $wp_customize->add_setting('phone-2', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'phone-2',
+            array(
+                'label'    => __('Téléphone 2'),
+                'section'  => 'contact',
+                'settings' => 'phone-2',
+                'type'     => 'text'
+            )
+        )
+    );
+
+
+    $wp_customize->add_setting('mail-2', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'mail-2',
+            array(
+                'label'    => __('Email 2'),
+                'section'  => 'contact',
+                'settings' => 'mail-2',
+                'type'     => 'text'
+            )
+        )
+    );
+
+    $wp_customize->add_section('footer', [
+        'title' => __('Footer'),
+        'description' => __('Footer.'),
+        'priority' => 1,
+        'capability' => 'edit_theme_options',
+    ]);
+
+
+
+
+    $wp_customize->add_setting('footer-job-1', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'footer-job-1',
+            array(
+                'label'    => __('Profession 1'),
+                'section'  => 'footer',
+                'settings' => 'footer-job-1',
+                'type'     => 'text'
+            )
+        )
+    );
+
+    $wp_customize->add_setting('footer-phone-1', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'footer-phone-1',
+            array(
+                'label'    => __('Téléphone 1'),
+                'section'  => 'footer',
+                'settings' => 'footer-phone-1',
+                'type'     => 'text'
+            )
+        )
+    );
+
+
+    $wp_customize->add_setting('footer-mail-1', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'footer-mail-1',
+            array(
+                'label'    => __('Email 1'),
+                'section'  => 'footer',
+                'settings' => 'footer-mail-1',
+                'type'     => 'text'
+            )
+        )
+    );
+
+    $wp_customize->add_setting('footer-job-2', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'footer-job-2',
+            array(
+                'label'    => __('Profession 2'),
+                'section'  => 'footer',
+                'settings' => 'footer-job-2',
+                'type'     => 'text'
+            )
+        )
+    );
+
+    $wp_customize->add_setting('footer-phone-2', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'footer-phone-2',
+            array(
+                'label'    => __('Téléphone 2'),
+                'section'  => 'footer',
+                'settings' => 'footer-phone-2',
+                'type'     => 'text'
+            )
+        )
+    );
+
+
+    $wp_customize->add_setting('footer-mail-2', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'footer-mail-2',
+            array(
+                'label'    => __('Email 2'),
+                'section'  => 'footer',
+                'settings' => 'footer-mail-2',
+                'type'     => 'text'
+            )
+        )
+    );
+
+    $wp_customize->add_setting('social-1', array(
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'social-1', array(
+        'label' => 'Image Social 1',
+        'section' => 'footer',
+        'settings' => 'social-1',
+        'button_labels' => array(
+            'select' => 'Select Logo',
+            'remove' => 'Remove Logo',
+            'change' => 'Change Logo',
+        )
+    )));
+
+    $wp_customize->add_setting('social-url-1', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'social-url-1',
+            array(
+                'label'    => __('Url Social 1'),
+                'section'  => 'footer',
+                'settings' => 'social-url-1',
+                'type'     => 'text'
+            )
+        )
+    );
+
+
+
+    $wp_customize->add_setting('social-2', array(
+        'sanitize_callback' => 'esc_url_raw'
+    ));
+
+    $wp_customize->add_control(new WP_Customize_Image_Control($wp_customize, 'social-2', array(
+        'label' => 'Image Social 2',
+        'section' => 'footer',
+        'settings' => 'social-2',
+        'button_labels' => array(
+            'select' => 'Select Logo',
+            'remove' => 'Remove Logo',
+            'change' => 'Change Logo',
+        )
+    )));
+
+    $wp_customize->add_setting('social-url-2', array(
+        'sanitize_callback' => 'sanitize_text'
+    ));
+
+
+    $wp_customize->add_control(
+        new WP_Customize_Control(
+            $wp_customize,
+            'social-url-2',
+            array(
+                'label'    => __('Url Social 2'),
+                'section'  => 'footer',
+                'settings' => 'social-url-2',
+                'type'     => 'text'
+            )
+        )
+    );
+
+
+
+
+
+
 }
 
 add_action('customize_register', 'esgi_customize_register');

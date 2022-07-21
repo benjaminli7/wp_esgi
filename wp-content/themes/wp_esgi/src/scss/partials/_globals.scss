@@ -13,6 +13,10 @@ img {
     height: auto;
 }
 
+.text-right {
+    text-align: right;
+}
+
 .title-page {
     h1 {
         font-weight:700;
@@ -39,7 +43,7 @@ p, ul {
     display: none;
 }
 
-#s {
+#s, input[type="text"] {
     background: none;
     border: none;
     border-bottom: 1px solid rgba(255, 255, 255, 0.297722);
@@ -52,4 +56,8 @@ p, ul {
 ul, li {
     padding-left: 0;
     list-style-type: none;
+}
+
+.content {
+    margin-bottom: 50px;
 }

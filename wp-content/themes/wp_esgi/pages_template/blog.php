@@ -20,7 +20,7 @@
 		</div>
 	</div>
 
-	<div class="container d-flex flex-column flex-md-row">
+	<div class="container d-flex flex-column gap-5 flex-md-row">
 		<div class="sidebar col-12 col-md-4">
 			<?php get_sidebar(); ?>
 		</div>
@@ -39,10 +39,14 @@
 					$the_query->the_post();
 			?>
 					<li class="col-12 col-md-6 post-item">
+						<div class="post-image">
+
+							<?php the_post_thumbnail(); ?>
+							<span class="post-category"><?= the_category(); ?></span>
+						</div>
 						<a class="post-link" href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
 						<div class="d-flex my-2 post-date-category">
-							<span class="post-category"><?= the_category(); ?></span>, 
-							<span><?= get_the_date(); ?></span>
+							<!-- <span><?= get_the_date(); ?></span> -->
 						</div>
 						<div class="post-excerpt"><?= the_excerpt(); ?></div>
 					</li>

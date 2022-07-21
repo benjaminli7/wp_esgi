@@ -1,0 +1,46 @@
+.contact {
+    .contact-items {
+        margin-bottom: 40px;
+        .contact-item {
+            h3 {
+                font-weight: 700;
+                font-size: rem(24);
+            }
+            p {
+                font-size: rem(14);
+            }
+        }
+    }
+    .contact-image {
+        margin-bottom: 70px;
+    }
+    .contact-form {
+        input[type="text"], textarea {
+            border-bottom: 1px solid #E4E4E4 !important;
+        }
+        input[type="submit"] {
+            background: none;
+            border: none;
+            font-weight: 700;
+        }
+        textarea {
+            border: none;
+        }
+
+        input, textarea {
+            &::placeholder {
+                color: #ADADAD;
+            }
+        }
+        .input {
+            margin: 10px 0;
+        }
+        .contact-form-title {
+            font-weight: 600;
+        }
+
+        .contact-form-subtitle {
+            margin-bottom: 25px;
+        }
+    }
+}
